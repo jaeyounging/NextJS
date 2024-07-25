@@ -1,5 +1,6 @@
 // localhost:3000/meals/something
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 import { getMeal } from "@/lib/meals";
 import styles from "./page.module.css";
@@ -7,6 +8,10 @@ import styles from "./page.module.css";
 export default function MealDetailsPage({ params }) {
   const meal = getMeal(params.mealSlug);
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");
+
+  if (!meal) {
+    notFound(); // 제일 가까운 not-found나 오류 페이지를 불러옴
+  }
 
   return (
     <>
