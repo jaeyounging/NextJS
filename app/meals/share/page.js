@@ -1,17 +1,18 @@
-import classes from "./page.module.css";
+import ImagePicker from "@/components/meals/image-picker";
+import styles from "./page.module.css";
 
 export default function ShareMealPage() {
   return (
     <>
-      <header className={classes.header}>
+      <header className={styles.header}>
         <h1>
-          Share your <span className={classes.highlight}>favorite meal</span>
+          Share your <span className={styles.highlight}>favorite meal</span>
         </h1>
         <p>Or any other meal you feel needs sharing!</p>
       </header>
-      <main className={classes.main}>
-        <form className={classes.form}>
-          <div className={classes.row}>
+      <main className={styles.main}>
+        <form className={styles.form}>
+          <div className={styles.row}>
             <p>
               <label htmlFor="name">Your name</label>
               <input type="text" id="name" name="name" required />
@@ -33,8 +34,8 @@ export default function ShareMealPage() {
             <label htmlFor="instructions">Instructions</label>
             <textarea id="instructions" name="instructions" rows="10" required></textarea>
           </p>
-          IMAGE PICKER
-          <p className={classes.actions}>
+          <ImagePicker />
+          <p className={styles.actions}>
             <button type="submit">Share Meal</button>
           </p>
         </form>
